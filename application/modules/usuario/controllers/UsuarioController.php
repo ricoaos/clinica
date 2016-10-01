@@ -1,4 +1,5 @@
 <?php
+
 class Usuario_UsuarioController extends App_Controller_Action
 {
 	public function init()
@@ -84,9 +85,11 @@ class Usuario_UsuarioController extends App_Controller_Action
     	if($this->_request->isPost())
     	{
     		$post = $this->_request->getPost();
-    		Zend_Debug::dump($post);
-    		$this->view->dadospagina = self::getdadoscadastrados($post["id_usuario"]);
-    		$this->render('index');
+    		
+    		//$this->view->dadospagina = self::getdadoscadastrados($post["id_usuario"]);
+    		$this->_helper->layout->disableLayout();
+			$this->getHelper('viewRenderer')->setNoRender();
+			$this->getResponse()->setBody(json_encode(array('resposta' => $rMedicoEspecialidade->toArray())));
     	}
     }
     

@@ -13,21 +13,6 @@
             </div>
 		</div>
 		
-		<?php if(!empty($this->msg)):?>
-			<?php if($this->msg == 2) :?>
-				<div class="alert alert-success fade in">
-					<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-					<i class="fa-ok alert-icon s24"></i>
-					<strong>Registro gravado com sucesso!</strong>
-				</div>
-			<?php else :?>
-				<div class="alert alert-danger fade in">
-					<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-					<strong>Ocorreu um erro ao gravar!</strong>
-				</div>
-			<?php endif;?>
-		<?php endif;?>
-		
 		<div class="tabs">
 			<ul class="nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#home2">DADOS PESSOAIS</a></li>
@@ -76,9 +61,9 @@
 										<div class="panel-heading white-bg"></div>
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">LOGIN</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">LOGIN<b style="color: red;"> *</b></label>
 												<div class="col-lg-6 col-md-6">
-													<input class="form-control" type="text" id="st_usuario" name="st_usuario" placeholder="nome.sobrenme" value="<?php echo $dados['geral']['st_usuario']?>" />
+													<input class="form-control" type="text" id="st_usuario" name="st_usuario" placeholder="nome.sobrenme" maxlength="40" required value="<?php echo $dados['geral']['st_usuario']?>" />
 												</div>												
 												<div class="col-lg-3 col-md-3">
 													<label class="checkbox-inline">
@@ -89,29 +74,29 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label ">NOME<b style="color: red;"> *</b>:</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label ">NOME<b style="color: red;"> *</b></label>
 												<div class="col-lg-9 col-md-9">
 													<input type="text" class="form-control" autofocus="autofocus" id="nm_usuario" name="nm_usuario" required  value="<?php echo $dados['geral']['nm_usuario']?>" />
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">NASCIDO EM<b style="color: red;"> *</b>:</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">NASCIDO EM<b style="color: red;"> *</b></label>
 												<div class="col-lg-3 col-md-3">
 													<input type="text" class="form-control" id="dt_nascimento" name="dt_nascimento" required  value="<?php echo $dados['geral']['dt_nascimento']?>" />
 												</div>
 												
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">SEXO<b style="color: red;"> *</b>:</label> 
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">SEXO<b style="color: red;"> *</b></label> 
 												<div class="col-lg-5 col-md-5">
 													<label class="radio-inline"> <input type="radio" name="st_sexo" value="M" <?php if($dados['geral']['ds_sexo'] == "M")  echo "checked"?> required >Masculino</label> 
 													<label class="radio-inline"> <input type="radio" name="st_sexo" value="F" <?php if($dados['geral']['ds_sexo'] == "F")  echo "checked"?> required >Feminino</label>
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">TELEFONE<b style="color: red;"> *</b>:</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">TELEFONE<b style="color: red;"> *</b></label>
 												<div class="col-lg-4 col-md-4">
 													<input type="text" class="form-control" id="st_fonecontato" name="st_fonecontato" required value="<?php echo $dados['geral']['nr_telefone']?>" />
 												</div>
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">CELULAR:</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">CELULAR</label>
 												<div class="col-lg-4 col-md-4">
 													<input type="text" class="form-control" id="st_fonecelular" name="st_fonecelular" required value="<?php echo $dados['geral']['nr_celular']?>" />
 												</div>
@@ -125,25 +110,25 @@
 										<div class="panel-heading white-bg"></div>
 										<div class="panel-body">
 										  <div class="form-group">
-												<label class="col-lg-1 col-md-1 col-sm-12 control-label">CPF</label>
+												<label class="col-lg-1 col-md-1 col-sm-12 control-label">CPF<b style="color: red;"> *</b></label>
 												<div class="col-lg-3 col-md-3">
-													<input type="text" class="form-control" id="st_cpf" name="st_cpf" value="<?php echo $dados['geral']['nr_cpf']?>" />
+													<input type="text" class="form-control" id="st_cpf" name="st_cpf" required value="<?php echo $dados['geral']['nr_cpf']?>" />
 												</div>
-												<label class="col-lg-1 col-md-1 col-sm-12 control-label">RG:</label>
+												<label class="col-lg-1 col-md-1 col-sm-12 control-label">RG</label>
 												<div class="col-lg-2 col-md-2">
-													<input type="text" class="form-control" id="st_rg" name="st_rg" value="<?php echo $dados['geral']['nr_rg']?>" />
+													<input type="text" class="form-control" id="st_rg" name="st_rg" maxlength="10" value="<?php echo $dados['geral']['nr_rg']?>" />
 												</div>
-												<label class="col-lg-1 col-md-1 col-sm-12 control-label">EMAIL:</label>
+												<label class="col-lg-1 col-md-1 col-sm-12 control-label">EMAIL<b style="color: red;"> *</b></label>
 												<div class="col-lg-4 col-md-4">
-													<input type="text" class="form-control" id="st_email" name="st_email" value="<?php echo $dados['geral']['ds_email']?>" />
+													<input type="text" class="form-control" id="st_email" name="st_email" required value="<?php echo $dados['geral']['ds_email']?>" />
 												</div>
 											</div>																			
 											<div class="form-group">
-												<label class="col-lg-1 col-md-1 col-sm-12 control-label">SENHA: </label>
+												<label class="col-lg-1 col-md-1 col-sm-12 control-label">SENHA </label>
 												<div class="col-lg-5 col-md-5">
 													<input id="password" class="form-control" type="password" name="password">
 												</div>												
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">CONFIRMA SENHA:</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">CONFIRMA SENHA</label>
 												<div class="col-lg-4 col-md-4">
 													<input id="confirm_password" class="form-control" type="password" name="confirm_passowrd">
 												</div>
@@ -166,7 +151,7 @@
 								
 				<div id="profile2" class="tab-pane fade">
 					<div class="outlet">
-						<form class="form-horizontal group-border hover-stripped" role="form" method="post" action="<?php echo $this->baseUrl('/usuario/usuario/acesso')?>">
+						<form class="form-horizontal group-border hover-stripped" role="form" method="post" id="formPerfil" name="formPerfil">
 							<input class="form-control" type="hidden" id="id_usuario" name="id_usuario" readonly="readonly" value="<?php echo $dados['geral']['id_usuario']?>" />					
 							<div class="row">
 								<div class="col-lg-12">
@@ -174,9 +159,9 @@
 										<div class="panel-heading white-bg"></div>
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">MULT-EMPRESA</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">MULT-EMPRESA<b style="color: red;"> *</b></label>
 												<div class="col-lg-4 col-md-4">
-													<select id="id_organizacao" class="form-control select2" name="id_organizacao">
+													<select id="id_organizacao" class="form-control select2" required name="id_organizacao">
 														<option></option>
 														<?php foreach ($this->organizacao as $value):?>
 															<option value="<?php echo $value['id_organizacao']?>"><?php echo strtoupper( $value['st_nome_fantasia']) ?></option>
@@ -185,9 +170,9 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-2 col-md-2 col-sm-12 control-label">PERFIL</label>
+												<label class="col-lg-2 col-md-2 col-sm-12 control-label">PERFIL<b style="color: red;"> *</b></label>
 												<div class="col-lg-4 col-md-4">
-													<select id="id_perfil" class="form-control select2" name="id_perfil">
+													<select id="id_perfil" class="form-control select2" required name="id_perfil">
 														<option></option>
 														<?php foreach ($this->perfil as $value):?>
 															<option value="<?php echo $value['id_perfil']?>"><?php echo strtoupper( $value['st_nome']) ?></option>
@@ -201,7 +186,7 @@
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="panel panel-default toggle">
 										<ul class="breadcrumb" style="text-align: center;">
-											<button class="btn btn-success  ml15" type="submit">Salvar</button>
+											<button class="btn btn-success  ml15" id="btnAddPerfil" type="submit">Adicionar</button>
 										</ul>
 									</div>	
 								</div>
@@ -245,26 +230,6 @@
 	<div class="clearfix"></div>
 </div>
 
-<!-- Modalsimilar -->
-<div class="modal fade" id="modalSimilar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Existe(m) esse(s) Registro(s) com o mesmo nome</h4>
-            </div>
-              <div class="modal-body">
-                <div class="row">
-					<div id="RegSimilar"></div>       
-        		</div>            
-            </div>
-            <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar Cadastro</button>
-          </div>
-        </div>
-    </div>
-</div>
-<!-- Fim Modal similar--> 
 <!-- ModalCPFIguais -->
 <div class="modal fade" id="modalCPF">
     <div class="modal-dialog modal-lg" role="document">
@@ -306,10 +271,26 @@
 </div>
 <!-- Fim Modal valida CPF--> 
 
+
+<?php if(!empty($this->msg)):?>
+	<?php if($this->msg == 2) :?>
+		<div class="alert alert-success fade in">
+			<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+			<i class="fa-ok alert-icon s24"></i>
+			<strong>Registro gravado com sucesso!</strong>
+		</div>
+	<?php else :?>
+		<div class="alert alert-danger fade in">
+			<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+			<strong>Ocorreu um erro ao gravar!</strong>
+		</div>
+	<?php endif;?>
+<?php endif;?>
+
 <script type="text/javascript" src="<?php echo $this->baseUrl('/js/photobooth/photobooth_min.js')?>"> </script>
 <script type="text/javascript" src="<?php echo $this->baseUrl('/js/photobooth/script.js')?>"> </script>
 <script type="text/javascript" src="<?php echo $this->baseUrl('/js/photobooth/hijs.js')?>"> </script>
-<script type="text/javascript" src="<?php echo $this->baseUrl('/js/corporativo/cliente.js')?>"> </script>
+<script type="text/javascript" src="<?php echo $this->baseUrl('/js/usuario/usuario.js')?>"> </script>
 <script type="text/javascript" src="<?php echo $this->baseUrl('/js/plugins/function.js')?>"> </script>
 <link href="<?php echo $this->baseUrl('/js/photobooth/page.css')?>" rel="stylesheet" />
 
