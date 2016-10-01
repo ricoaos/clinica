@@ -1,0 +1,97 @@
+<!-- Start #content -->
+<div id="content">
+	<!-- Start .content-wrapper -->
+	<div class="content-wrapper">
+		<div class="row">
+			<div class="col-lg-12 heading">
+                <h1 class="page-header"><i class="ec-pencil2"></i>Lista de Clínicas</h1>
+                <ul id="crumb" class="breadcrumb">
+                </ul>
+                <div class="option-buttons">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php echo $this->baseUrl('/corporativo/clinica/')?>">
+								<button class="btn btn-primary" type="button">Adicionar Clínica</button>
+							</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		
+		<?php if(!empty($this->rsOrganizacao)):?>
+		
+    		<div class="outlet">
+    			<form class="form-horizontal group-border hover-stripped" role="form">
+    				<!-- Start .outlet -->
+    				<!-- Page start here ( usual with .row ) -->
+    				<div class="row">
+    					<div class="col-lg-12">
+                                <!-- col-lg-12 start here -->
+                                <div class="panel panel-default plain toggle panelClose panelRefresh">
+                                    <!-- Start .panel -->
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Relatório</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table id="responsive-datatables" class="table table-bordered table-striped table-hover dt-responsive non-responsive" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Registro</th>
+                                                    <th>Nome</th>
+                                                    <th>CNPJ</th>
+                                                    <th>CNES</th>
+                                                    <th>E-mail</th>
+                                                    <th>Status</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php foreach ($this->rsOrganizacao as $rsOrganizacao) : ?>
+                                                <tr>
+                                                	<td>
+                                                		<?php $imagem = !file_exists('../public/img/logo/'.$rsOrganizacao['st_logo']) || empty($rsOrganizacao['st_logo']) ?'/assets/img/user.png' : '/img/logo/'.$rsOrganizacao['st_logo'];?>
+                                                    	<img width="45" height="45" class="chat-avatar" src="<?php  echo $this->baseUrl($imagem)?>"><br/>
+                                                	</td>
+                                                    <td><?php echo $rsOrganizacao['st_nome_fantasia'] ?></td>
+                                                    <td><?php echo $rsOrganizacao['st_cnpj'] ?></td>
+                                                    <td><?php echo $rsOrganizacao['st_cnes'] ?></td>
+                                                    <td><?php echo $rsOrganizacao['st_email'] ?></td>
+                                                    <td><?php echo $rsOrganizacao['id_ativo'] ==1 ? 'ATIVO':'INATIVO';?></td>
+                                                    <td style="text-align: center;">
+                										<a href="<?php echo $this->baseUrl('/corporativo/clinica/index/id/'.base64_encode($rsOrganizacao['idorganizacao']))?>"><span class="fa-edit s20" title="Editar Registro"></span></a> | 
+                										<a href="<?php echo $this->baseUrl('/corporativo/clinica/inativarregistro/id/'.base64_encode($rsOrganizacao['idorganizacao']))?>"><span class="fa-remove s20" title="Inativar Registro"></span></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- End .panel -->
+                            </div>
+                            <!-- col-lg-12 end here -->
+    				</div>
+    				<!-- End .row -->
+    				<!-- Page End here -->
+    			</form>
+    		</div>
+		<!-- End .outlet -->
+		<?php else :?>
+		
+            <div class="alert alert-info fade in" style="text-align: center;">
+                <strong>NÃO EXISTEM CLÍNICAS CADASTRADAS, CLIQUE NO BOTÃO "ADICIONAR CLÍNICA" PARA REALIZAR OS CADASTROS</strong>
+            </div>
+		 
+		<?php endif;?>
+	</div>
+	<!-- End .content-wrapper -->
+	<div class="clearfix"></div>
+</div>
+<!-- End #content -->
+
+<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/dataTables.tableTools.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/dataTables.bootstrap.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/dataTables.responsive.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/js/pages/data-tables.js"></script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login | OnClínica</title>
+        <!-- Mobile specific metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Force IE9 to render in normal mode -->
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+        <meta name="author" content="SuggeElson" />
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""
+        />
+        <meta name="application-name" content="onClinica" />
+       <!--  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:400,700' />
+        <!--[if lt IE 9]>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+        <![endif]-->
+        <!-- Css files -->
+        <!-- build:css assets/css/main.min.css -->
+        <!-- Icons -->
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/icons.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/sprflat-theme/jquery.ui.all.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/bootstrap.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/plugins.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/main.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/custom.css')?>
+        <!-- endbuild -->
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="icon" href="<?php echo $this->baseUrl()?>/assets/img/ico/favicon.ico" type="image/png">
+        <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
+        <meta name="msapplication-TileColor" content="#3399cc" />
+    </head>
+
+    <body class="login-page">
+        <!-- Start #login -->
+        <div id="login" class="animated bounceIn">
+                        
+            <img id="logo" width="50%" src="<?php echo $this->baseUrl()?>/img/onclinica-logo.png"><br><br>
+                        
+            <!-- Start .login-wrapper -->
+            <div class="login-wrapper" style="padding-top: 60px">
+                <div id="myTabContent" class="tab-content bn">
+                    <div class="tab-pane fade active in" id="log-in">
+                 
+                        <form class="form-horizontal mt10" action="<?php echo $this->baseUrl()?>/auth" id="login-form" role="form" method="post">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="text" name="usuario" id="email" class="form-control left-icon" value="" required placeholder="Login">
+                                    <i class="ec-user s16 left-input-icon"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="password" name="senha" id="password" class="form-control left-icon" value="" required placeholder="Senha">
+                                    <i class="ec-locked s16 left-input-icon"></i>
+                                    <span class="help-block"><a href="#"><small>Esqueceu senha?</small></a></span>
+                                </div>
+                            </div>
+                            <?php if (!empty($this->msg)):?>
+                            	<?php if ($this->msg == 1):?>
+		                            <div class="form-group">
+		                                <div class="col-lg-12">
+		                                    <div class="alert alert-danger fade in">
+												<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+												<strong>Login ou senha incorretos!</strong>
+											</div>
+		                                </div>
+		                            </div>
+								<?php else :?>
+									<div class="form-group">
+		                                <div class="col-lg-12">
+		                                    <div class="alert alert-danger fade in">
+												<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+												<strong>Você não possui clinicas cadastradas, procure o administrador do Sistema</strong>
+											</div>
+		                                </div>
+		                            </div>
+								<?php endif;?>
+                            <?php endif;?>
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                                    <!-- col-lg-12 start here -->
+                                    <label class="checkbox">
+                                       <!--   <input type="checkbox" name="remember" id="remember" value="option">Lembrar de mim?-->
+                                    </label>
+                                </div>
+                                <!-- col-lg-12 end here -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                                    <!-- col-lg-12 start here -->
+                                    <button class="btn btn-secondary pull-right" type="submit">Acessar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End #.login-wrapper -->
+        </div>
+        <!-- End #login -->
+        <!-- Javascripts -->
+        <!-- Load pace first -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/pace/pace.min.js"></script>
+        <!-- Important javascript libs(put in all pages) -->
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="<?php echo $this->baseUrl()?>/assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
+        </script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="<?php echo $this->baseUrl()?>/assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+        </script>
+        <!--[if lt IE 9]>
+          <script type="text/javascript" src="assets/js/libs/excanvas.min.js"></script>
+          <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <script type="text/javascript" src="assets/js/libs/respond.min.js"></script>
+        <![endif]-->
+        <!-- build:js assets/js/pages/login.js -->
+        <!-- Bootstrap plugins -->
+        <script src="<?php echo $this->baseUrl()?>/assets/js/bootstrap/bootstrap.js"></script>
+        <!-- Form plugins -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/icheck/jquery.icheck.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/validation/jquery.validate.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/validation/additional-methods.min.js"></script>
+        <!-- Init plugins olny for this page -->
+        <script src="<?php echo $this->baseUrl()?>/assets/js/pages/login.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

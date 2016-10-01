@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>OnClinica</title>
+        <!-- Mobile specific metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Force IE9 to render in normal mode -->
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+        <meta name="author" content="onClinica" />
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta name="application-name" content="onClinica" />
+        <!-- Import google fonts - Heading first/ text second -->
+       <!--  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:400,700' />  -->
+        <!--[if lt IE 9]>
+            <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+            <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
+            <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
+            <link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+        <![endif]-->
+        <!-- Css files -->
+        <!-- build:css assets/css/main.min.css -->
+        <!-- Icons -->
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/icons.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/sprflat-theme/jquery.ui.all.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/bootstrap.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/plugins.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/main.css')?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/css/custom.css')?>     
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/assets/plugins/forms/select2/select2.css')?>
+           
+         <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="<?php echo $this->baseUrl()?>/assets/img/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="icon" href="<?php echo $this->baseUrl()?>/assets/img/ico/favicon.ico" type="image/png">
+        
+        <!-- Javascripts -->
+        <!-- Load pace first -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/pace/pace.min.js"></script>
+        <!-- Important javascript libs(put in all pages) -->
+        <script src="<?php echo $this->baseUrl()?>/js/jquery-2.1.1.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
+        </script>
+        <script src="<?php echo $this->baseUrl()?>/js/jquery-ui-1.10.4-jquery-ui.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+        </script>
+        <!--[if lt IE 9]>
+          <script type="text/javascript" src="assets/js/libs/excanvas.min.js"></script>
+          <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <script type="text/javascript" src="assets/js/libs/respond.min.js"></script>
+        <![endif]-->
+        <!-- build:js assets/js/pages/dashboard.js -->
+        <!-- Bootstrap plugins -->
+        <script src="<?php echo $this->baseUrl()?>/assets/js/bootstrap/bootstrap.js"></script>
+        <!-- Core plugins ( not remove ever) -->
+        <script src="<?php echo $this->baseUrl()?>/assets/js/libs/modernizr.custom.js"></script>
+        <!-- Handle responsive view functions -->
+        <script src="<?php echo $this->baseUrl()?>/assets/js/jRespond.min.js"></script>
+        <!-- Custom scroll for sidebars,tables and etc. -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+        <!-- Remove click delay in touch -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/fastclick/fastclick.js"></script>
+        <!-- Increase jquery animation speed -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/velocity/jquery.velocity.min.js"></script>
+        <!-- Resize text area in most pages -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/autosize/jquery.autosize.js"></script>
+        <!-- Proivde quick search for many widgets -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/quicksearch/jquery.quicksearch.js"></script>
+        <!-- Bootbox confirm dialog for reset postion on panels -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/ui/bootbox/bootbox.js"></script>
+        <!-- Other plugins ( load only nessesary plugins for every page) -->
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/core/moment/moment.min.js"></script>        
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/charts/sparklines/jquery.sparkline.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/icheck/jquery.icheck.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/tags/jquery.tagsinput.min.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/tinymce/tinymce.min.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/misc/highlight/highlight.pack.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/misc/countTo/jquery.countTo.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/js/jquery.sprFlat.js"></script>
+        <script src="<?php echo $this->baseUrl()?>/assets/js/app.js"></script>
+        
+        <script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/jquery.dataTables.js"></script>
+		<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/dataTables.tableTools.js"></script>
+		<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/dataTables.bootstrap.js"></script>
+		<script src="<?php echo $this->baseUrl()?>/assets/plugins/tables/datatables/dataTables.responsive.js"></script>
+		<script src="<?php echo $this->baseUrl()?>/assets/js/pages/data-tables.js"></script>
+        
+        <script type="text/javascript" src="<?php echo $this->baseUrl()?>/assets/plugins/forms/select2/select2.full.js"></script>
+        <script type="text/javascript"> var baseUrl = "<?php echo $this->baseUrl(); ?>";</script>
+        <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
+        <meta name="msapplication-TileColor" content="#3399cc" />
+                
+    </head>
+    <body>
+        <!-- Start #header -->
+        <?php echo $this->render('menu.phtml');?>
+        <!-- End #header -->
+        
+        <!-- Start #content -->
+        <?php echo $this->layout()->content;?>
+        <!-- End #content -->
+    </body>
+</html>

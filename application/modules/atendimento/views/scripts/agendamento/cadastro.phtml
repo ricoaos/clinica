@@ -1,0 +1,344 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agendamento de consulta</h4>
+            </div>
+          
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-09">
+                        <!-- Start col-lg-12 -->
+                        <div class="panel panel-default toggle" id="spr_0">
+                            <!-- Start .panel -->
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><span id='viewData' style="font-weight: bold"></span></h3>
+                                <div class="panel-controls panel-controls-hide" style="display: none;">
+                                    <a class="toggle panel-minimize" href="#"><i class="im-minus"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="panel-body">
+                                <input type="hidden" name="dt" id="dt" value="">
+                                                        
+                                <form role="form" class="form-horizontal group-border hover-stripped" id="formRealizaAgendamento" name="formRealizaAgendamento">     
+                                    <input type="hidden" name="xentidade_pf" id="xentidade_pf" value="564">
+                                    <input type="hidden" name="xidmedico" id="xidmedico" value="19626">
+                                    <input type="hidden" name="xidespecialidade" id="xidespecialidade" value="14">
+                                    <input type="hidden" name="xidplano" id="xidplano" value="1">
+                                    <input type="hidden" name="xidprocedimento" id="xidprocedimento" value="5">
+                                    <input type="hidden" name="xdataatendimento" id="xdataatendimento" value="">
+                                    
+                                    <div class="form-group">                                
+                                        <label class="col-lg-2 col-md-2 col-sm-12 control-label">                                     
+                                            <div class="col-lg-5 col-md-5">
+                                                <div class="form-group">
+                                					<div class="col-lg-9 col-md-9">
+                                						<img src="<?php echo $this->baseUrl()?>/assets/img/user.png" width='70px'>
+                                					</div>
+                                				</div>                                    
+                        				    </div>
+                    				    </label>
+                                             
+                                        <div class="col-lg-9 col-md-9">                                              
+                                            <div class="row">                    
+                                                <div class="col-lg-7 col-md-7">
+                                                    <input type="text" class="form-control left-icon" name="st_nome" id="st_nome" style="border:1px solid red;" value="JOSE CARLOS ROSA">
+                                                    <i class="ec-user s16 left-input-icon"></i>
+                                                    <span class="help-block">Nome do cliente</span>
+                                                </div>  
+                                                <div class="col-lg-5 col-md-5">
+                                                    <button class="btn btn-success" type="button" title="Confirmar/Desconfirmar Cliente"><i class="fa-question"></i></button>
+                                                    <button class="btn btn-default" type="button" title="1a vez Paciente na Clínica"><i class="ec-star"></i></button>
+                                                    <button class="btn btn-default" type="button" title="Indicar retorno do Paciente"><i class="im-undo"></i></button>
+                                                    <button class="btn btn-default" type="button" title="Indicar Encaixe/Lista Espera"><i class="im-users"></i></button>
+                                                    <button class="btn btn-default" type="button" title="Bloqueio de horário"><i class="im-lock2"></i></button>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <input type="text" class="form-control left-icon" name="mail" id="mail"><i class="ec-mail s16 left-input-icon"></i>
+                                                    <span class="help-block">Endereço de e-mail</span>
+                                                </div>       
+                                                <div class="col-lg-3 col-md-3">
+                                                    <input type="text" class="form-control left-icon" name="fone1" id="fone1"><i class="fa-phone s16 left-input-icon"></i>
+                                                    <span class="help-block">Telefone Fixo</span>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3">
+                                                    <input type="text" class="form-control left-icon" name="fone2" id="fone2"><i class="fa-phone s16 left-input-icon"></i>
+                                                    <span class="help-block">Telefone Celular</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">                                
+                                        <label class="col-lg-2 col-md-2 col-sm-12 control-label">                                     
+                                            <div class="col-lg-5 col-md-5">
+                                                <div class="form-group">
+                                					<div class="col-lg-9 col-md-9">
+                                						Cobertura
+                                					</div>
+                                				</div>                                    
+                        				    </div>
+                    				    </label>
+                                             
+                                        <div class="col-lg-9 col-md-9">                                              
+                                            <div class="row">                                                                     
+                                                <div class="col-lg-6 col-md-6">
+                                                    <select class="select2" id='convenio' name='convenio'>
+                                                        <option value="1">SUL AMÉRICA</option>
+                                                    </select> 
+                                                    <span class="help-block">Convênio</span>
+                                                </div>       
+                                                 <div class="col-lg-6 col-md-6">
+                                                   <select class="select2" id='plano' name='plano'>
+                                                        <option value="1">INTERNADOS</option>
+                                                    </select>
+                                                 <span class="help-block">Plano</span>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                                        
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-2 col-sm-12 control-label">Observações</label>
+                                        <div class="col-lg-9 col-md-9">
+                                            <textarea rows="3" class="form-control" id="observacao" name="observacao"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End .panel -->
+                    </div>
+        		</div>            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="btnAgendar">Agendar Consulta</button>
+          </div>
+        </div>
+    </div>
+</div>
+<!-- Fim Modal --> 
+
+<!-- Start #content -->
+<div id="content">
+    <!-- Start .content-wrapper -->
+    <div class="content-wrapper">
+        <div class="row">
+            <!-- Start .row -->
+            <!-- Start .page-header -->
+            <div class="col-lg-12 heading">
+                <h1 class="page-header"><i class="ec-archive"></i> Agendamento Consultas</h1>
+                <!-- Start .bredcrumb -->
+                <ul id="crumb" class="breadcrumb">
+                </ul>
+                <!-- End .breadcrumb -->
+                <!-- Start .option-buttons -->
+                <div class="option-buttons">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group">
+                            <a id="clear-localstorage" class="btn tip" title="Reset panels position">
+                                <i class="ec-refresh color-red s24"></i>
+                            </a>
+                        </div>
+                        <div class="btn-group dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"><i class="br-grid s24"></i></a>
+                            <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                                <div class="option-dropdown">
+                                    <div class="shortcut-button">
+                                        <a href="#">
+                                            <i class="im-pie"></i>
+                                            <span>Earning Stats</span>
+                                        </a>
+                                    </div>
+                                    <div class="shortcut-button">
+                                        <a href="#">
+                                            <i class="ec-images color-dark"></i>
+                                            <span>Gallery</span>
+                                        </a>
+                                    </div>
+                                    <div class="shortcut-button">
+                                        <a href="#">
+                                            <i class="en-light-bulb color-orange"></i>
+                                            <span>Fresh ideas</span>
+                                        </a>
+                                    </div>
+                                    <div class="shortcut-button">
+                                        <a href="#">
+                                            <i class="ec-link color-blue"></i>
+                                            <span>Links</span>
+                                        </a>
+                                    </div>
+                                    <div class="shortcut-button">
+                                        <a href="#">
+                                            <i class="ec-support color-red"></i>
+                                            <span>Support</span>
+                                        </a>
+                                    </div>
+                                    <div class="shortcut-button">
+                                        <a href="#">
+                                            <i class="st-lock color-teal"></i>
+                                            <span>Lock area</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenu2"><i class="ec-pencil s24"></i></a> 
+                            <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu2">
+                                <div class="option-dropdown">
+                                    <div class="row">
+                                        <p class="col-lg-12">Quick post</p>
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <input type="text" class="form-control" placeholder="Enter title">
+                                                </div>
+                                            </div>
+                                            <!-- End .form-group  -->
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <textarea class="form-control wysiwyg" placeholder="Enter text"></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- End .form-group  -->
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <input type="text" class="form-control tags1" placeholder="Enter tags">
+                                                </div>
+                                            </div>
+                                            <!-- End .form-group  -->
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <button class="btn btn-default btn-xs">Save Draft</button>
+                                                    <button class="btn btn-success btn-xs pull-right">Publish</button>
+                                                </div>
+                                            </div>
+                                            <!-- End .form-group  -->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3"><i class="ec-help s24"></i></a>
+                            <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu3">
+                                <div class="option-dropdown">
+                                    <p>First time visitor ? <a href="#" id="app-tour" class="btn btn-success ml15">Take app tour</a> 
+                                    </p>
+                                    <hr>
+                                    <p>Or check the <a href="#" class="btn btn-danger ml15">FAQ</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .option-buttons -->
+            </div>
+            <!-- End .page-header -->
+        </div>
+        <!-- End .row -->
+        <div class="outlet">
+            <!-- Start .outlet -->
+            <!-- Page start here -->
+            <div id="email-sidebar">
+                <!-- Start #email-sidebar -->
+                <div class="p15">
+                    <a id="write-email" href="#" class="btn btn-danger btn-block uppercase"><i class="im-alarm"></i> Consultas do dia</a>
+                </div>
+                <form id="formAgendamento" name="formAgendamento" method="post">
+                    <ul id="email-nav" class="nav nav-pills nav-stacked">
+                        <li>
+                            <select class="form-control select2" id="idmedico" name="idmedico">
+                                <optgroup label="Selecione o médico"><option value="">Médico</option>
+                                <?php if ($this->medicos) :?>
+                                    <?php foreach ($this->medicos as $esp) :?>                                    
+                                        <option value="<?php echo $esp->idmedico?>"><?php echo $esp->nmMedico?></option>
+                                    <?php endforeach; ?>
+                                <?php endif;?>
+                                </optgroup>
+                            </select>  
+                        </li>
+                        <li>
+                            <select class="form-control select2" id="idespecialidade" name="idespecialidade" required='required'>
+                                <option value="">Especialidade</option>
+                                <?php if ($this->especialidade) :?>
+                                    <?php foreach ($this->especialidade as $esp) :?>                                    
+                                        <option value="<?php echo $esp->idespecialidade?>"><?php echo $esp->nmEspecialidade?></option>
+                                    <?php endforeach; ?>
+                                <?php endif;?>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="form-control select2" id="idprocedimento" name="idprocedimento" required='required'>
+                                <option value="">Procedimento</option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="form-control select2" id='idconvenio' name='idconvenio' required='required'>
+                                <option value="">Convênio</option>
+                            </select>
+                        </li>
+                         <li>
+                            <select class="form-control select2" id="idplano" name="idplano" required='required'>
+                                <option value="">Plano</option>
+                            </select>
+                        </li>
+                        <div id="calendario" style="padding: 25px 7px 7px 7px"></div>
+                        <li class="nav-header">Status Consulta</li>
+                        <li><a href="#"><span class="circle"></span> Agendadas</a>
+                        </li>
+                        <li><a href="#"><span class="circle color-red"></span> Cancelada</a>
+                        </li>
+                        <li><a href="#"><span class="circle color-green"></span> Confirmadas</a>
+                        </li>
+                        <li><a href="#"><span class="circle color-teal"></span> Atendida</a>
+                        </li>
+                    </ul>
+                    
+                </form>
+            </div>
+            <!--End #email-sidebar -->
+            <div id="email-content">
+                <!-- Start #email-content -->
+                <div class="email-wrapper">
+                    <div class="email-toolbar col-lg-12">
+                        <div class="pull-left" role="toolbar">
+                            <button id="email-toggle" class="email-toggle" type="button">
+                                <span class="sr-only">Toggle email nav</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="#" class="btn btn-default btn-round btn-sm tip mr5" title="Refresh inbox"><i class="ec-refresh s16"></i></a>
+                            <a href="#" class="btn btn-default btn-round btn-sm tip mr5" title="Print"><i class="fa-print s16"></i></a> <span id='loading'></span>
+                        </div>
+                        <ul class="email-pager">
+                            <li class="pager-info"></li>
+                            <li><a href="#" class="btn btn-default btn-round btn-sm"><i class="en-arrow-left4 s16"></i></a></li>
+                            <li><a href="#" class="btn btn-default btn-round btn-sm"><i class="en-arrow-right5 s16"></i></a></li>
+                        </ul>
+                    </div>
+                    
+					<div class="email-list col-lg-12" id="resultado">
+						<?php echo $this->Agenda($this->dadosConsulta);?>
+					</div>
+                </div>
+            </div>
+        </div>
+        <!-- End .outlet -->
+    </div>
+    <!-- End .content-wrapper -->
+    <div class="clearfix"></div>
+</div>
+<!-- End #content -->
+<!-- Javascripts -->
+<script type="text/javascript" src="<?php echo $this->baseUrl('/js/atendimento/agendamentocadastro.js')?>"> </script>
+<script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/maskedinput/jquery.maskedinput.js"></script>

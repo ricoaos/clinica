@@ -1,0 +1,30 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#modalCenario").modal();
+});
+</script>
+
+<div class="modal" id="modalCenario">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Selecione a Organização</h4>
+            </div>
+			<div class="modal-body">
+				<div class="row">
+					<table>
+                        <?php foreach ($this->rsOrganizacoes as $rOrganizacao) : ?>
+                            <tr>
+                                <td class="email-subject">
+                                    <a href="<?php echo $this->baseUrl('administrativo/index/mudar-cenario/org/' . $rOrganizacao->id_organizacao); ?>"><b><?php echo strtoupper($rOrganizacao->st_nome_fantasia) ?></b></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>      
+				</div>            
+            </div>
+        </div>
+    </div>
+</div>
+ 
+

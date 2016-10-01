@@ -1,0 +1,80 @@
+<div id="content">
+	<div class="content-wrapper">		
+		<div class="row">
+			<div class="col-lg-12 heading">
+                <h1 class="page-header"><i class="ec-pencil2"></i><strong>LISTAGEM DE USUÁRIOS</strong></h1>
+				<div style="text-align: right;">
+					<a class="btn dropdown-toggle" id="dropdownMenu1" href="<?php echo $this->baseUrl('/usuario/usuario/')?>">
+						<button class="btn btn-dark" type="button">ADICIONAR USUÁRIO</button>
+					</a>
+				</div>
+            </div>
+		</div>
+		
+		<?php if(!empty($this->rsUsuario)):?>
+		
+			<div class="outlet">
+    			<form class="form-horizontal group-border hover-stripped" role="form">
+					<div class="row">
+    					<div class="col-lg-12">
+							<div class="panel panel-default plain toggle panelClose panelRefresh">
+								<div class="panel-heading">
+									<h4 class="panel-title">Relatório</h4>
+								</div>
+								<div class="panel-body">
+									<table id="responsive-datatables" class="table table-bordered table-striped table-hover dt-responsive non-responsive" cellspacing="0" width="100%">
+										<thead>
+											<tr>
+												<th>Registro</th>
+												<th>Nome</th>
+												<th>Nascido em</th>
+												<th>Sexo</th>
+												<th>E-mail</th>
+												<th>Status</th>
+												<th>Ação</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php foreach ($this->rsUsuario as $rsUsuario) : ?>
+												<tr>
+                                                	<td>
+                                                		<?php $imagem = empty($rsUsuario['sn_foto']) ?'/assets/img/user.png' : '/img/fotos/usuario/'.$rsUsuario['id_usuario'].'.png';?>
+                                                    	<img width="45" height="50" class="chat-avatar" src="<?php  echo $this->baseUrl($imagem)?>"><br/>
+														<?php echo str_pad($rsUsuario['id_usuario'], 5, "0", STR_PAD_LEFT); ?>
+													</td>
+                                                    <td>
+                                                        <?php echo $rsUsuario['nm_usuario'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        	if(!empty($rsUsuario["dt_nascimento"])){
+	                                                            list($YY,$mm,$dd) = explode('-',$rsUsuario["dt_nascimento"]);
+	                                                            echo $dd.'/'.$mm.'/'.$YY; 
+                                                        	}
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo $rsUsuario['ds_sexo'] == 'M' ? 'Masculino' : 'Feminino' ?></td>
+                                                    <td><?php echo $rsUsuario['ds_email'] ?></td>
+                                                    <td><?php echo $rsUsuario['id_ativo'] == 1 ? 'ATIVO':'INATIVO';?></td>
+                                                    <td style="text-align: center;">
+                										<a href="<?php echo $this->baseUrl('/usuario/usuario/index/id/'.base64_encode($rsUsuario["dt_nascimento"].'@'.$rsUsuario['id_usuario']))?>"><span class="fa-edit s20" title="Editar Registro"></span></a> | 
+                										<a href="<?php echo $this->baseUrl('/usuario/usuario/inativarregistro/id/'.base64_encode($rsUsuario["dt_nascimento"].'@'.$rsUsuario['id_usuario']))?>"><span class="fa-remove s20" title="Inativar Registro"></span></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+    				</div>
+    			</form>
+    		</div>
+		<?php else :?>
+            <div class="alert alert-danger fade in" style="text-align: center;">
+                <strong>NÃO EXISTEM USUÁRIOS CADASTRADOS NA CLÍNICA, CLIQUE NO BOTÃO "ADICIONAR USUÁRIO" PARA REALIZAR OS CADASTROS</strong>
+            </div>
+		<?php endif;?>
+	</div>
+	<div class="clearfix"></div>
+</div>
