@@ -18,4 +18,18 @@ class Model_Usuario_UsuarioOrganizacao extends Zend_Db_Table
 		->where('usorg.sn_ativo = ?', '1');
 		return $mUserOrg->fetchAll($select);
 	}
+	
+	/**
+	 * 
+	 * @param unknown $post
+	 * @return number
+	 */
+	public function deleteReg($post)
+	{
+		$mUserOrg = new Model_Usuario_UsuarioOrganizacao();
+		$where = array();
+		$where[] = $mUserOrg->getAdapter()->quoteInto('cd_organizacao = ?', $post['organizacao']);
+		$where[] = $mUserOrg->getAdapter()->quoteInto('cd_usuario = ?', $post['usuario']);
+		return $mUserOrg->delete($where);
+	}
 }

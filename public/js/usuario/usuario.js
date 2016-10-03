@@ -29,23 +29,28 @@ $(document).ready(function(){
 	
 	$("#btnAddPerfil").click(function(){
 		
-		$.validator.setDefaults({
-			submitHandler: function() { cadastraAcesso($("#formPerfil").serialize()); }
-		}); 
-		
-		$("#formPerfil").validate();
+		$.ajax({
+			url: baseUrl+'/usuario/usuario/acesso',
+			data: $("#formPerfil").serialize(),
+			dataType: 'json',
+	        type:"POST",
+			success:function(response){	
+				alert(response.result);
+			}
+		});
 	});
 });
 
-function cadastraAcesso(objeto){
+function excluirRegistro(org,user){
+		
 	$.ajax({
-		url: baseUrl+'/usuario/usuario/acesso',
-		data: objeto,
-		type: "POST",
-        dataType: "Json",
-		success:function(resposta){	
-			
-			
+		url: baseUrl+'/usuario/usuario/deleteperfil',
+		data: 'organizacao='+org+'&usuario='+user,
+		dataType: 'json',
+        type:"POST",
+		success:function(response){	
+			alert("Registro Deletado");
 		}
 	});
+	
 }

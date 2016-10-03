@@ -67,9 +67,7 @@
 												</div>												
 												<div class="col-lg-3 col-md-3">
 													<label class="checkbox-inline">
-														<div class="icheckbox_flat-blue" style="position: relative;">
-															<input type="checkbox" value="1" <?php if($dados['geral']['id_ativo']==1){ echo 'checked ="checked"';}?> style="position: absolute; opacity: 0;" id="id_ativo" name="id_ativo"  />
-														</div>ATIVO
+														<input type="checkbox" value="1" <?php if($dados['geral']['id_ativo']==1){ echo 'checked ="checked"';}?> style="position: absolute; opacity: 0;" id="id_ativo" name="id_ativo"  />ATIVO
 													</label>
 												</div>
 											</div>
@@ -139,8 +137,10 @@
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="panel panel-default toggle">
 										<ul class="breadcrumb" style="text-align: center;">
-											<button class="btn btn-success  ml15" type="submit">Salvar</button>
-											<button class="btn btn-primary" type="reset" id="btnLimpar">Limpar</button>
+											<li>
+												<button class="btn btn-success  ml15" type="submit">Salvar</button>
+												<button class="btn btn-primary" type="reset" id="btnLimpar">Limpar</button>
+											</li>
 										</ul>
 									</div>	
 								</div>
@@ -151,8 +151,8 @@
 								
 				<div id="profile2" class="tab-pane fade">
 					<div class="outlet">
-						<form class="form-horizontal group-border hover-stripped" role="form" method="post" id="formPerfil" name="formPerfil">
-							<input class="form-control" type="hidden" id="id_usuario" name="id_usuario" readonly="readonly" value="<?php echo $dados['geral']['id_usuario']?>" />					
+						<form class="form-horizontal group-border hover-stripped" method="post" id="formPerfil" name="formPerfil">
+							<input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $dados['geral']['id_usuario']?>" />					
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="panel panel-default plain">
@@ -186,7 +186,9 @@
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="panel panel-default toggle">
 										<ul class="breadcrumb" style="text-align: center;">
-											<button class="btn btn-success  ml15" id="btnAddPerfil" type="submit">Adicionar</button>
+											<li>
+												<button class="btn btn-success  ml15" id="btnAddPerfil" type="button">Adicionar</button>
+											</li>
 										</ul>
 									</div>	
 								</div>
@@ -199,20 +201,20 @@
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th>Mult-Empresa</th>
-											<th>Perfil</th>
-											<th>Status</th>
-											<th>Ação</th>
+											<th style="text-align: center;">Mult-Empresa</th>
+											<th style="text-align: center;">Perfil</th>
+											<th style="text-align: center;">Status</th>
+											<th style="text-align: center;">Ação</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php foreach ($dados['perfil'] as $rsPerfil) : ?>
 											<tr>
-												<td><?php echo $rsPerfil['st_nome_fantasia']; ?></td>
-												<td><?php echo $rsPerfil['st_nome'] ?></td>
+												<td><?php echo strtoupper($rsPerfil['st_nome_fantasia']); ?></td>
+												<td><?php echo strtoupper($rsPerfil['st_nome']) ?></td>
                                                 <td><?php echo $rsPerfil['sn_ativo'] == 1 ? 'ATIVO':'INATIVO';?></td>
                                                 <td style="text-align: center;">
-                									<a href="<?php echo $this->baseUrl('/usuario/usuario/inativarregistro/id/'.base64_encode($dados['geral']["dt_nascimento"].'@'.$dados['geral']['id_usuario']))?>"><span class="fa-remove s20" title="Inativar Registro"></span></a>
+                									<a><span class="fa-remove s20" title="Inativar Registro" onclick="excluirRegistro(<?php echo $rsPerfil['cd_organizacao'] ?>,<?php echo $rsPerfil['cd_usuario'] ?>)" style="cursor: pointer;"></span></a>
                                                 </td>
                                             </tr>
 										<?php endforeach; ?>
@@ -297,4 +299,3 @@
 <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/maxlength/bootstrap-maxlength.js"></script>
 <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/bootstrap-filestyle/bootstrap-filestyle.js"></script>
 <script src="<?php echo $this->baseUrl()?>/assets/plugins/forms/maskedinput/jquery.maskedinput.js"></script>
-<script type="text/javascript">
