@@ -58,12 +58,13 @@ class Usuario_UsuarioController extends App_Controller_Action
     			$this->mUsuario->update($dados, $where);
     		    $this->view->dadospagina = self::getdadoscadastrados($post["usuario"]);
     		}
+    		
     		//Realiza o decode da imagem e grava no diretorio informado
     		if(!empty($post["imagem"])){
     			$idFoto = empty($post["usuario"]) ? $rsUsuario : $post["usuario"];
     			list($tipo,$conteudo) = explode(",", $post["imagem"]);
     			if(!file_put_contents(APPLICATION_PATH . '/../public/img/fotos/usuario/'.$idFoto.".png", base64_decode($conteudo))){
-    				throw new Exception(1);
+    				throw new Exception("Não gravou a foto");
     			}
     		}
     	}
